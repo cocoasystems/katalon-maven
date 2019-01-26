@@ -18,13 +18,13 @@ WebUI.openBrowser('https://duckduckgo.com')
 
 WebUI.waitForElementClickable(findTestObject('Search Home/Search Input'), 20)
 
-WebUI.sendKeys(findTestObject('Search Home/Search Input'), 'Katalon Maven Plugin')
+WebUI.sendKeys(findTestObject('Search Home/Search Input'), GlobalVariable.defaultSearchString)
 
 WebUI.sendKeys(findTestObject('Search Home/Search Input'), Keys.chord(Keys.ENTER))
 
 WebUI.waitForElementPresent(findTestObject('Search Home/Search Results'), 5)
 
-WebUI.delay(2)
+WebUI.delay(GlobalVariable.defaultDelay)
 
 WebUI.closeBrowser()
 
