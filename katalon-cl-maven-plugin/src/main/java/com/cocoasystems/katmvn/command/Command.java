@@ -1,5 +1,7 @@
 package com.cocoasystems.katmvn.command;
 
+import java.util.Map;
+
 /**
  * Specifies the Katalon command-line parameters that are supported in the Maven
  * Mojo plug-in.
@@ -35,5 +37,11 @@ public interface Command {
 	 * Kind of browser to run tests in.
 	 */
 	String getBrowserType();
+	
+	/**
+	 * Katalon project profile Global variables to be overwritten at the 
+	 * command line when running the suite.
+	 */
+	Map<String, String> getGlobals();
 
 }

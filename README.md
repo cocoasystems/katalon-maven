@@ -47,7 +47,7 @@ mvn katalon-cl:exec-katalon -testSuitePath="Test Suites/Another Suite"
 
 The plugin uses the KATALON_HOME environment variable to find where you installed/unzipped Katalon Studio.  If you do not want to set KATALON_HOME, or want to override this value, use the katalonPath parameter.
 
-More information coming soon on other parameter options. 
+For more information about plugin parameters, see [Supported Parameters](supported-parameters.md). 
 
 ## What's Included?
 ### katalon-cl-maven-plugin
@@ -64,7 +64,7 @@ mvn katalon-cl:exec-katalon
 
 ## Limitations
 
-* The plugin implements only a basic subset of the command-line options that Katalon supports.  I will add the rest in the near future.
+* The plugin implements only a basic subset of the command-line options that Katalon supports.  I will add the rest in the near future.  See [Supported Parameters](supported-parameters.md).
 * The project lacks unit tests.  I am a huge fan of unit-testing, and will add tests soon.
 * The plugin interacts with Katalon via a Java shell command execution.  It might be cleaner to use Java/Groovy library calls, but I have not found a way to do that.
 

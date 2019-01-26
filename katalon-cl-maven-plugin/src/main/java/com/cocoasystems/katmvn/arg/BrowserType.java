@@ -1,12 +1,14 @@
 package com.cocoasystems.katmvn.arg;
 
+import java.util.Arrays;
+
 import com.cocoasystems.katmvn.command.Command;
 
 /**
  * Command specifies a valid Katalon browser type.
  */
 public class BrowserType implements Argument {
-
+	
 	enum Types {
 		Firefox,
 		Chrome,
@@ -18,8 +20,10 @@ public class BrowserType implements Argument {
 	};
 
 	public String format(Command command) {
+
+		final String browserType = command.getBrowserType();
+		
 		try {
-			final String browserType = command.getBrowserType();
 
 			Types.valueOf(browserType);
 
@@ -27,7 +31,9 @@ public class BrowserType implements Argument {
 
 		} catch (Exception e) {
 
-			throw new RuntimeException("Unsupported browser type '%s'");
+			throw new RuntimeException(
+					String.format("Unsupported browser type '%s', must be one of %s",
+							browserType, Arrays.toString(Types.values())));
 		}
 
 	}

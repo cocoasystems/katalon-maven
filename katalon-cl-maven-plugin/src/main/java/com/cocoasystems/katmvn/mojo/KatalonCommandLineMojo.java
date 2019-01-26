@@ -1,5 +1,7 @@
 package com.cocoasystems.katmvn.mojo;
 
+import java.util.Map;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -16,6 +18,10 @@ import com.cocoasystems.katmvn.execute.CommandExecutor;
 @Mojo(name = "exec-katalon", defaultPhase = LifecyclePhase.DEPLOY)
 public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 
+	/**
+	 * Returns 0 if Katalon command was executed.  Does not convey
+	 * success or failure status of test cases.
+	 */
 	@Parameter(readonly = true)
 	private int exitCode;
 
@@ -25,20 +31,44 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 	@Parameter(readonly=true, defaultValue="${project}")
 	private MavenProject mavenProject;
 
+	/**
+	 * Path to the Katalon installation.  Optional if KATALON_HOME
+	 * environment variable is set.
+	 */
 	@Parameter()
 	private String katalonPath;
 
+	/**
+	 * Path to the Katalon project.
+	 */
 	@Parameter(required = true)
 	private String katalonProjectPath;
 
+	/**
+	 * Path to test suite relative to the Katalon project path.
+	 * One of testSuitePath or testSuiteCollectionPath is required.
+	 */
 	@Parameter()
 	private String testSuitePath;
 
+	/**
+	 * Path to test suite collection relative to the Katalon project path.
+	 * One of testSuitePath or testSuiteCollectionPath is required.
+	 */
 	@Parameter()
 	private String testSuiteCollectionPath;
 
+	/**
+	 * Optional parameter to specify the browser to run tests in.
+	 */
 	@Parameter(defaultValue = "Chrome")
 	private String browserType;
+	
+	/**
+	 * Optional map of Katalon project profile Global variables that you want to override.
+	 */
+	@Parameter()
+	private Map<String, String> globals;
 
 	/**
 	 * Builds and executes the Katalon command.
@@ -78,6 +108,10 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 
 	public String getTestSuiteCollectionPath() {
 		return testSuiteCollectionPath;
+	}
+
+	public Map<String, String> getGlobals() {
+		return globals;
 	}
 
 }
