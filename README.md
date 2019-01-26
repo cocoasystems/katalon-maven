@@ -15,8 +15,8 @@ Add a build step to your Maven pom.xml file.
 				<artifactId>katalon-cl-maven-plugin</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<configuration>
-					<projectPath>${project.basedir}/MyKatalonProject</projectPath>
-					<testSuitePath>Test Suites/MyTestSuite</testSuitePath>
+					<katalonProjectPath>${project.baseDir}\Sample Katalon Project</katalonProjectPath>
+					<testSuitePath>Test Suites/My Test Suite</testSuitePath>
 				</configuration>
 				<executions>
 					<execution>
@@ -33,12 +33,21 @@ Add a build step to your Maven pom.xml file.
 
 ### Command Line
 
-To execute Katalon from the command line use
+To execute Katalon using this POM from the command line use
 
 ```
-mvn katalon-cl:exec-katalon -DprojectPath="C:/MyKatalonProject" -testSuitePath="Test Suites/MyTestSuite"
+mvn katalon-cl:exec-katalon
 ```
 
+To execute a different test suite use
+
+```
+mvn katalon-cl:exec-katalon -testSuitePath="Test Suites/Another Suite"
+```
+
+The plugin uses the KATALON_HOME environment variable to find where you installed/unzipped Katalon Studio.  If you do not want to set KATALON_HOME, or want to override this value, use the katalonPath parameter.
+
+More information coming soon on other parameter options. 
 
 ## Authors
 
@@ -50,7 +59,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* The Katalon Studio Development Team
+* The Katalon Studio Development Team and Lounge
 * The test automators.  (They knew who they are.)
 
 
