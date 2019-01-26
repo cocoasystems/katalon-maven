@@ -12,7 +12,7 @@ public class CommandFormatter {
 	 * Ordered array of Katalon command arguments.
 	 */
 	private static final Argument[] ARGUMENTS = { new KatalonPath(), new RunModeConsoleLog(), new ProjectPath(),
-			new SuiteOrCollection(), new BrowserType(), new NoSplash() };
+			new SuiteOrCollection(), new BrowserType(), new NoSplash(), new Globals() };
 
 	public String format(Command command) {
 		

@@ -6,6 +6,10 @@
 	<artifactId>katalon-cl-maven-plugin-usage</artifactId>
 
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<name>Katalon Command Line Maven Plugin Usage</name>
+	<description>Illustrates how to use the Katalon Command Line Maven Plugin</description>
+	<inceptionYear>2019</inceptionYear>
 
 	<build>
 		<plugins>
@@ -16,6 +20,10 @@
 				<configuration>
 					<katalonProjectPath>${project.basedir}\Sample Katalon Project</katalonProjectPath>
 					<testSuitePath>Test Suites/My Test Suite</testSuitePath>
+					<globals>
+						<defaultSearchString>Katalon Command Line Maven Plugin</defaultSearchString>
+						<defaultDelay>6</defaultDelay>
+					</globals>
 				</configuration>
 				<executions>
 					<execution>
