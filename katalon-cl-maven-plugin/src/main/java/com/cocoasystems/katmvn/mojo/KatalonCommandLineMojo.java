@@ -33,7 +33,7 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 
 	/**
 	 * Path to the Katalon installation.  Optional if KATALON_HOME
-	 * environment variable is set.
+	 * environment variable is set.  Overrides KATALON_HOME if both are provided.
 	 */
 	@Parameter()
 	private String katalonPath;
@@ -63,7 +63,20 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 	 */
 	@Parameter(defaultValue = "Chrome")
 	private String browserType;
+
+	/**
+	 * Optional folder where .html, .csv, and .log outputs are written.  May be relative
+	 * to Katalon project path, or absolute.
+	 */
+	@Parameter()
+	private String reportFolder;
 	
+	/**
+	 * Optional name for .html, .csv, and .log outputs.  Use only with report folder.
+	 */
+	@Parameter()
+	private String reportFileName;
+
 	/**
 	 * Optional map of Katalon project profile Global variables that you want to override.
 	 */
@@ -108,6 +121,14 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 
 	public String getTestSuiteCollectionPath() {
 		return testSuiteCollectionPath;
+	}
+	
+	public String getReportFolder() {
+		return reportFolder;
+	}
+	
+	public String getReportFileName() {
+		return reportFileName;
 	}
 
 	public Map<String, String> getGlobals() {

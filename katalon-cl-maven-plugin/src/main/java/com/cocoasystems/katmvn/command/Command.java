@@ -44,4 +44,16 @@ public interface Command {
 	 */
 	Map<String, String> getGlobals();
 
+	/**
+	 * Optional location of report output files.  Can be absolute path
+	 * or relative to Katalon project director.
+	 */
+	String getReportFolder();
+	
+	/**
+	 * Optional name of report files (.html, .cvs, .log, etc.) when
+	 * report folder is provided.
+	 */
+	String getReportFileName();
+
 }
