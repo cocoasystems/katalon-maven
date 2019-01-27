@@ -17,7 +17,7 @@ public class ReportFolderAndFileName implements Argument {
 			
 			if(reportFileName != null) {
 				
-				buffer.append(String.format("-reportFileName=\"%s\"", reportFileName));
+				buffer.append(String.format(" -reportFileName=\"%s\"", reportFileName));
 			}
 			
 		} else {
