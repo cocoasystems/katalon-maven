@@ -8,7 +8,7 @@ This [plugin](README.md) supports the following Maven parameters.  For informati
 * **katalonProjectPath**.  Required, path to your Katalon project.  *Note, the name katalonProjectPath differs from the Katalon option "projectPath" to avoid confusing the Maven and Katalong projects.*
 * **testSuitePath**. Path to the test suite you want to execute, relative to the Katalon project.  One of testSuitePath or testSuiteCollectionPath is required.
 * **testSuiteCollectionPath**. Path to the test suite collection you want to execute, relative to the Katalon project.  One of testSuitePath or testSuiteCollectionPath is required.
-* **browserType**.  Optional, installed web browser where the tests  run.  Defaults to Chrome if not specified.  Supported types are Chrome, Firefox, IE, Safari, Remote, Android, and iOS.
+* **browserType**.  Optional, installed web browser where the tests  run.  Defaults to Chrome if not specified.  Supported types are Chrome, Chrome (headless), Firefox, IE, Safari, Remote, Android, and iOS.
 * **reportFolder**.  Optional, location of .csv and .html report outputs.  May be relative to Katalon project path, or absolute path.
 * **reportFileName**. Optional name of report outputs.  Use only with reportFolder parameter.
 * **globals**.  Optional Global profile variables from your Katalon project that that you want to override when the tests run. Parameter is a Maven map.  *These are -g_ options to Katalon.*

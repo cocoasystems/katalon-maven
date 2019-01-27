@@ -1,7 +1,5 @@
 package com.cocoasystems.katmvn.arg;
 
-import java.util.Arrays;
-
 import com.cocoasystems.katmvn.command.Command;
 
 /**
@@ -9,31 +7,43 @@ import com.cocoasystems.katmvn.command.Command;
  */
 public class BrowserType implements Argument {
 	
-	enum Types {
-		Firefox,
-		Chrome,
-		IE,
-		Safari,
-		Remote,
-		Android,
-		iOS
+	enum Type {
+		Firefox("Firefox"),
+		Chrome("Chrome"),
+		ChromeHeadless("Chrome (headless)"),
+		IE("IE"),
+		Safari("Safari"),
+		Remote("Remote"),
+		Android("Android"),
+		iOS("iOS");
+		
+		private String value;
+		Type(String value) {
+			this.value = value;
+		}
+		
+		static Type findByValue(String value) {
+			for(Type type: Type.values()) {
+				if(type.value.equals(value)) {
+					return type;
+				}
+			}
+			return null;
+		}
 	};
 
 	public String format(Command command) {
 
 		final String browserType = command.getBrowserType();
 		
-		try {
-
-			Types.valueOf(browserType);
-
-			return String.format("-browserType=%s", browserType);
-
-		} catch (Exception e) {
-
+		if(Type.findByValue(browserType) == null) {
+			
 			throw new RuntimeException(
-					String.format("Unsupported browser type '%s', must be one of %s",
-							browserType, Arrays.toString(Types.values())));
+					String.format("Unsupported browser type '%s'",
+							browserType));
+		} else {
+			
+			return String.format("-browserType=%s", browserType);
 		}
 
 	}
