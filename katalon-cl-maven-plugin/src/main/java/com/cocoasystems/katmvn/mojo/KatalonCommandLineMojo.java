@@ -30,6 +30,9 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 	 */
 	@Parameter(readonly=true, defaultValue="${project}")
 	private MavenProject mavenProject;
+	
+	@Parameter()
+	private String propertiesFile;
 
 	/**
 	 * Path to the Katalon installation.  Optional if KATALON_HOME
@@ -101,6 +104,10 @@ public class KatalonCommandLineMojo extends AbstractMojo implements Command {
 	
 	public String getMavenProjectBaseDir() {
 		return mavenProject.getBasedir().getAbsolutePath();
+	}
+	
+	public String getPropertiesFile() {
+		return propertiesFile;
 	}
 
 	public String getKatalonPath() {

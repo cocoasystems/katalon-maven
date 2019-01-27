@@ -11,13 +11,14 @@ public class CommandFormatter {
 	/**
 	 * Ordered array of Katalon command arguments.
 	 */
-	private static final Argument[] ARGUMENTS = { new KatalonPath(), new RunModeConsoleLog(), new ProjectPath(),
-			new SuiteOrCollection(), new BrowserType(), new NoSplash(), new ReportFolderAndFileName(), new Globals() };
+	private static final Argument[] ARGUMENTS = { new KatalonPath(), new PropertiesFile(), new RunModeConsoleLog(),
+			new ProjectPath(), new SuiteOrCollection(), new BrowserType(), new NoSplash(),
+			new ReportFolderAndFileName(), new Globals() };
 
 	public String format(Command command) {
-		
+
 		final StringBuffer buffer = new StringBuffer();
-		
+
 		for (Argument arg : ARGUMENTS) {
 
 			buffer.append(arg.format(command));

@@ -14,6 +14,12 @@ public interface Command {
 	String getMavenProjectBaseDir();
 	
 	/**
+	 * Absolute path to optional properties file.  Properties specified also on the
+	 * command line overwrite those in the properties file.
+	 */
+	String getPropertiesFile();
+	
+	/**
 	 * Absolute path of the Katalon installation.
 	 */
 	String getKatalonPath();

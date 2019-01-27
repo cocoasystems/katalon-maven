@@ -19,6 +19,18 @@ public class KatalonPath implements Argument {
 				throw new RuntimeException(String
 						.format("Must provide Katalon path parameter or set %s environment variable", KATALON_HOME));
 			}
+			
+			final File file = new File(katalonPath);
+			
+			if(file.exists() == false) {
+				throw new RuntimeException(String.format(
+						"Katalon path not found, %s", katalonPath));
+			}
+
+			if(file.isDirectory() == false) {
+				throw new RuntimeException(String.format(
+						"Katalon path should be the installation folder, %s", katalonPath));
+			}
 
 			if (!katalonPath.endsWith(File.pathSeparator)) {
 				katalonPath += File.separator;

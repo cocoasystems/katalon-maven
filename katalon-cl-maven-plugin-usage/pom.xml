@@ -20,8 +20,10 @@
 				<configuration>
 					<katalonProjectPath>${project.basedir}\Sample Katalon Project</katalonProjectPath>
 					<testSuitePath>Test Suites/My Test Suite</testSuitePath>
-					<reportFolder>${project.build.directory}/katalon-reports</reportFolder>
+					<reportFolder>${project.build.directory}\katalon-reports</reportFolder>
 					<reportFileName>SampleOutput</reportFileName>
+					<!-- browserType>Firefox</browserType -->
+					<!-- propertiesFile>${project.basedir}\src\main\resources\console.properties</propertiesFile -->
 					<globals>
 						<defaultSearchString>Katalon Command Line Maven Plugin</defaultSearchString>
 						<defaultDelay>6</defaultDelay>
